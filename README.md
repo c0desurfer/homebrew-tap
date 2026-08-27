@@ -17,13 +17,13 @@ the hash in the cask, and puts `Swift Salamander.app` in `/Applications`.
 
 ## Updates
 
-The app updates itself and tells you when a new version is ready, so Homebrew
-stays out of the way. `brew upgrade` will not touch it. If you would rather
-Homebrew did the work:
-
 ```sh
-brew upgrade --cask --greedy swift-salamander
+brew upgrade --cask swift-salamander
 ```
+
+The app also updates itself and will tell you when a new version is ready, so
+you can take an update from either side. Both install the same signed and
+notarized build.
 
 ## Uninstall
 

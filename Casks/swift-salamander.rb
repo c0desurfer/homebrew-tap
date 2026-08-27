@@ -21,11 +21,13 @@ cask "swift-salamander" do
     end
   end
 
-  # The app updates itself. Without this line `brew upgrade` would replace a
-  # bundle the in-app updater had already moved forward, so two mechanisms
-  # would be writing the same directory. With it, Homebrew steps back and
-  # `brew upgrade --greedy` is the way to ask it to act anyway.
-  auto_updates true
+  # No `auto_updates true`. The app does carry its own updater, and that line
+  # would tell Homebrew to step back and leave upgrades to it. The owner
+  # reversed that on 2026-08-27 (ledger L1): somebody who installed with
+  # Homebrew expects `brew upgrade` to upgrade it, and being told "that one is
+  # special, pass --greedy" is a worse surprise than two updaters offering the
+  # same version. The in-app updater still works; whichever gets there first
+  # installs the same notarized bundle.
   depends_on macos: :ventura
   depends_on arch: :arm64
 
