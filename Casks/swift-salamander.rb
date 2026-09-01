@@ -5,8 +5,16 @@ cask "swift-salamander" do
   version "0.8.78"
   sha256 "e06e2777d77744fb3ea0887bd4cd26b3a9498b9d679854b90db9dbacdfaf02e3"
 
-  url "https://cdn.codesurfer.ch/swift-salamander/SwiftSalamander_#{version}_arm64.dmg",
-      verified: "cdn.codesurfer.ch/swift-salamander/"
+  # No `verified:` parameter. Homebrew deprecated it and `brew audit
+  # --strict --online` fails on it: "the `verified` parameter has been
+  # deprecated; use the `url` stanza without it". It existed to tell
+  # Homebrew that a download host different from the homepage host was
+  # trusted on purpose, and Homebrew works that out for itself now.
+  #
+  # Caught by the audit on the 0.8.78 release, which shipped and whose
+  # packages did not. The rendered cask is regenerated from here, so this
+  # is the only place the line had to go.
+  url "https://cdn.codesurfer.ch/swift-salamander/SwiftSalamander_#{version}_arm64.dmg"
   name "Swift Salamander"
   desc "Dual-pane file manager for local folders and network storage"
   homepage "https://salamander.codesurfer.ch/"
