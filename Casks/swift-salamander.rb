@@ -3,7 +3,7 @@
 # Edit the template, not this file.
 cask "swift-salamander" do
   version "0.8.93"
-  sha256 "eec935e10d5e6711362f3b63ef4316001b0236e49930d4030e48ea3b2afbda23"
+  sha256 "c34de57b951e0e9061e7d1e2e2efeb385a4be6819fe2e132105ab63b1620f548"
 
   # No `verified:` parameter. Homebrew deprecated it and `brew audit
   # --strict --online` fails on it: "the `verified` parameter has been
